@@ -1,9 +1,15 @@
 import 'webextension-polyfill';
-import { exampleThemeStorage } from '@chrome-extension-boilerplate/storage';
+// import { exampleThemeStorage } from '@chrome-extension-boilerplate/storage';
+import { SseProxyService } from './SseProxyService';
 
-exampleThemeStorage.get().then(theme => {
-  console.log('theme', theme);
+// exampleThemeStorage.get().then(theme => {
+//   console.log('theme', theme);
+// });
+
+const sseProxyService = new SseProxyService();
+
+self.addEventListener('fetch', (e: Event) => {
+  console.log('fetch', e);
+  const fetchEvent = e as FetchEvent;
+  return sseProxyService.register(fetchEvent);
 });
-
-console.log('background loaded');
-console.log("Edit 'apps/chrome-extension/lib/background/index.ts' and save to reload.");

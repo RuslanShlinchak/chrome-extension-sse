@@ -5,8 +5,9 @@
     "types": ["vite/client", "node", "chrome"],
     "paths": {
       "@root/*": ["./*"],
-      "@lib/*": ["lib/*"],
-    }
+      "@lib/*": ["lib/*"]
+    },
+    "lib": ["webworker", "es2018"]
   },
   "include": ["lib", "utils", "vite.config.ts", "node_modules/@types"]
 }

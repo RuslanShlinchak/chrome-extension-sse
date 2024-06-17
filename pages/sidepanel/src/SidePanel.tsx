@@ -5,7 +5,6 @@ import { ComponentPropsWithoutRef } from 'react';
 
 const SidePanel = () => {
   const theme = useStorageSuspense(exampleThemeStorage);
-
   return (
     <div
       className="App"
